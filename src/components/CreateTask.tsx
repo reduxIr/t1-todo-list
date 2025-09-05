@@ -19,6 +19,3 @@ const CreateTask = () => {
 }
 
 export default CreateTask;
-
-
-// надо реализовать в сторе create task 
