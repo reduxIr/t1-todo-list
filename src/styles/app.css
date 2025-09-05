@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Orbitron";
+  src: url('../fonts/Orbitron/Orbitron-Regular.woff2') format('woff2');
+}
+
+
