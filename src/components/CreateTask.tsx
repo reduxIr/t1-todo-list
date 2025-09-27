@@ -7,7 +7,7 @@ const CreateTask = () => {
   return (
     <div className="content-center text-center ">
       <button 
-      className="rounded-2xl border w-55 h-15 hover:bg-neutral-100 hover:border-2 focus:bg-neutral-100 focus:border-2" 
+      className="rounded-2xl border w-55 h-15 hover:bg-neutral-100 hover:ring-1 focus:bg-neutral-100 focus:ring-1 transition-all duration-300" 
       onClick={() => setIsModalOpen(true)}
       >
         <span className="font-mono text-xl">Create new task</span>

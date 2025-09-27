@@ -9,28 +9,37 @@ import type { Task } from './types/types';
 
 function App() {
   const taskList = useTaskList()
+
   const [filters, setFilters] = useState({
     category: '',
     status: '', 
     priority: '',
-  })
-  const [filtersTasks, setFiltersTasks] = useState<Task[]>(taskList)
+  });
 
-  const handleChange = (key: string, value: string) => {
+  const [filteredTasks, setFilteredTasks] = useState<Task[]>(taskList)
+
+  const handlesSortingChange = (key: string, value: string) => {
     setFilters(prev => ({
       ...prev,
       [key]: value
     }))
   }
   useEffect(() => {
-    console.log(filters)
-  }, [filters])
+    let filteredTasks = taskList;
+    Object.entries(filters).forEach(([key, value]) => {
+      if(value !== '') {
+        filteredTasks = filteredTasks.filter((el) => el[key as keyof Task] === value)
+      }
+    });
+    setFilteredTasks(filteredTasks);
+  }, [filters, taskList])
+  
   return (
     <>
       <Header/>
       <CreateTask/>
-      <SotringSection handleChange={handleChange}/>
-      <TaskList taskList={filtersTasks}/>
+      <SotringSection handleChange={handlesSortingChange}/>
+      <TaskList taskList={filteredTasks}/>
     </>
   )
 }

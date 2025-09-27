@@ -37,7 +37,7 @@ const TaskItem: React.FC<ITaskItem> = ({ task }) => {
 
   return (
     <div  
-    className={'flex flex-col m-5 w-80 h-57 border rounded-lg hover:bg-neutral-100 hover:border-2 focus:bg-neutral-100 transition-all duration-100'}
+    className={'flex flex-col m-5 w-80 h-57 border rounded-lg hover:bg-neutral-100 hover:ring-1 focus:bg-neutral-100 transition-all duration-300'}
     onClick={() => toggleModal()}
     onMouseEnter={() => setIsHovered(true)}
     onMouseLeave={() => setIsHovered(false)}
