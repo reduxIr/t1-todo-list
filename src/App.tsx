@@ -38,7 +38,7 @@ function App() {
     <>
       <Header/>
       <CreateTask/>
-      <SotringSection handleChange={handlesSortingChange}/>
+      <SotringSection handleChange={handlesSortingChange} filters={filters}/>
       <TaskList taskList={filteredTasks}/>
     </>
   )
