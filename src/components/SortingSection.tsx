@@ -11,7 +11,7 @@ interface ISortingSection {
 
 const SotringSection = ({ handleChange, filters }: ISortingSection) => {
   const [isHovered, setIsHovered] = useState<string | null>(null);
-  const classes = 'border border-gray-400 rounded font-mono cursor-pointer w-45 h-8 text-left transition-all duration-300 appearance-none p-1'
+  const classes = 'appearance-none border border-gray-400 rounded font-mono cursor-pointer w-45 h-8 text-left transition-all duration-300 p-1 active:ring-1 active:ring-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500'
 
   const handleMouseEnter = (field: string) => {
     setIsHovered(field);

@@ -20,21 +20,20 @@ const CreateModal = ({ handleCancel }: ICreateModal) => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') handleCancel()
-      if (e.key === 'Enter') handleCreate(taskData)
+      if (e.key === 'Escape') handleCancel();
+      if (e.key === 'Enter') handleCreate(taskData);
     }
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [handleCancel]);
+  }, [handleCancel, taskData]);
 
   const handleCreate = (taskData: ITaskData) => {
     if (!taskData.title.trim() || !taskData.category || !taskData.status || !taskData.priority) {
-      alert('Please, fill in all required fields')
+      alert('All required fields must be filled in');
     } else {
       createTask(taskData);
       handleCancel();
-    }
-    
+    } 
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -74,7 +73,6 @@ const CreateModal = ({ handleCancel }: ICreateModal) => {
             placeholder='Enter description(optional)'
             type='text'
             name='description'
-            // value={task?.description || ''}
             onChange={handleInputChange}
           />
         </label>
@@ -86,7 +84,6 @@ const CreateModal = ({ handleCancel }: ICreateModal) => {
             font-mono w-full h-8 p-1 cursor-pointer border border-gray-400
             rounded outline-none focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent'
             name='category'
-            // value={task?.category}
             onChange={handleInputChange}
           >
             <option value="" selected disabled hidden>Select category</option>
@@ -119,7 +116,6 @@ const CreateModal = ({ handleCancel }: ICreateModal) => {
             font-mono w-full h-8 p-1 cursor-pointer border border-gray-400
             rounded outline-none focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent'
             name='priority'
-            // value={task?.priority}
             onChange={handleInputChange}
           >
             <option value="" selected disabled hidden>Select priority</option>
